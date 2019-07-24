@@ -80,7 +80,7 @@ router.put('/:id', async (req,res)=>{
   const venue = await Venue.findById(req.params.id);
   if(venue.creator.toString() !== req.session.userID){
     req.session.message = "Priviledge to edit is invalid";
-    res.redirect(`/venues/${req.params.id}/edit`)
+    res.redirect(`/venues/${req.params.id}`)
   }
   else{
     Venue.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err,foundVenue)=>{
