@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> This is the GIG-LINK Artist Page!</h1>
+    <h1> Welcome to GIG-LINK - Artist!</h1>
+    <%- include ../partials/_navbar.ejs%>
     <div>
         <table>
             <tr>
@@ -18,11 +19,17 @@
             </tr>
             <% bandsOnPage.forEach(function(band){ %>
             <tr>
-                <td><%=band.bandName%></td>
+                <td>
+                <%=band.bandName%>
+                
+
+                </td>
                 <td><%=band.genre%></td>
                 <td><%=band.description%></td>
                 <td><%=band.priceRange%></td>
+                <td><a href="/band/<%=band._id%>">See more</a></td>
                 <td><a href="/band/<%=band._id%>/edit">EDIT This Band</a></td> 
+        
                 <td>
                     <form action="/band/<%=band._id%>?_method=DELETE" method="POST">
                     <button name="button" type="submit">DELETE</button>

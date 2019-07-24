@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Register as a new band below Below</h1>
+    <%- include ../partials/_navbar.ejs%>
     <form action="/band" method="POST">
         <label for="bandName">Band Name:</label>
         <input type="text" name="bandName">
@@ -16,7 +17,9 @@
         <label for="description">Description:</label>
         <input type="text" name="description">
         <label for="priceRange">Price Range:</label>
-        <input type="text" name="priceRange">
+        <input type="text" name="priceRange"><br>
+        <label for="image">Image Link:</label>
+        <input type="text" name="image">
         
         <input type="submit" value="Resgister your band!">
     </form>

@@ -33,6 +33,20 @@ router.post('/', (req, res)=>{
     })
 })
 
+//Show Route
+router.get('/:id', async(req,res)=>{
+    try{
+        const seeBand = await Band.findById(req.params.id)
+        res.render('bands/show.ejs',{
+            oneBand : seeBand
+        })
+    }
+    catch(err){
+        console.log(err);
+        res.send(err);
+    }
+})
+
 //Delete Route
 router.delete('/:id', (req,res)=>{
     Band.findOneAndDelete({_id:req.params.id},(err, deletedBand)=>{
