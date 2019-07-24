@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    <% if(typeof message !== "undefined"){%>
+        <p> <%= message %> </p>
+    <% } %>
     <h1>Welcome Back</h1>
     <form action="/users/login" method="POST">
         username: <input type="text" name="username">

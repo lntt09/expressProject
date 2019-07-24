@@ -19,6 +19,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use((req, res, next)=>{
   res.locals.currentUser = req.session.userID
+  if(req.session.message){
+    res.locals.message = req.session.message
+    req.session.message = null;
+  }
   next();
 })
 

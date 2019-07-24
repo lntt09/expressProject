@@ -36,12 +36,13 @@ router.post('/login', async (req, res)=>{
             res.redirect("/venues")
         }
         else{
-            res.send("Invalid credentials, please try again!");
+            res.session.message = "Invalid credentials, please try again!"
+            res.redirect('/users/login')
         }
     }
     catch(err){
-        console.log("User does not exist");
-        res.redirect('/users/new')
+        req.session.message = "User does not exist";
+        res.redirect('/users/login')
     }
 })
 

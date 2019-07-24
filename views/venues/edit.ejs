@@ -8,6 +8,9 @@
 </head>
 <body>
     <%- include ../partials/_navbar.ejs%>
+    <% if(typeof message !== "undefined"){%>
+        <p> <%= message %> </p>
+    <% } %>
     <h1>Edit Venue Below</h1>
     <form action="/venues/<%=oneVenue._id%>?_method=PUT" method="POST">
         <label for="venueName">Venue Name:</label>

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Venue = require('../models/venues');
+const loginRequired = require('../middleware/loginRequired');
 
 
 //Index Route
@@ -14,7 +15,7 @@ router.get('/', (req, res)=>{
 })
 
 //New Route
-router.get('/new', (req, res)=>{
+router.get('/new', loginRequired, (req, res)=>{
     res.render('venues/new.ejs')
 })
 
@@ -75,10 +76,17 @@ router.get('/:id/edit', (req,res)=>{
 })
 
 //Put Route
-router.put('/:id', (req,res)=>{
+router.put('/:id', async (req,res)=>{
+  const venue = await Venue.findById(req.params.id);
+  if(venue.creator.toString() !== req.session.userID){
+    req.session.message = "Priviledge to edit is invalid";
+    res.redirect(`/venues/${req.params.id}/edit`)
+  }
+  else{
     Venue.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err,foundVenue)=>{
-        res.redirect('/venues')
+        res.redirect('/venues') 
     })
+  }  
 })
 
 module.exports = router;
