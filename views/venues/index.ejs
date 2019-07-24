@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello Guest! Please take a look at our list of Venues below</h1>
+    <%- include ../partials/_navbar.ejs%>
+    <div>
+        <table>
+            <tr>
+                <th>Venue Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Maximum Capacity</th>
+            </tr>
+            <% venuesOnPage.forEach(function(venue){ %>
+            <tr>
+                <td><a href="/venues/<%=venue._id%>"><%=venue.venueName%></a></td>
+                <td><%=venue.address%></td>
+                <td><%=venue.phoneNum%></td>
+                <td><%=venue.capacity%></td>
+                <% if(venue.creator == currentUser){ %>
+                <td><a href="/venues/<%=venue._id%>/edit">EDIT This Venue</a></td> 
+                <% } %>
+            </tr>    
+            <%})%>
+        </table>
+
+        <p><a href="/venues/new">Add A New Venue</a></p>
+    </div>
+</body>
+</html>
