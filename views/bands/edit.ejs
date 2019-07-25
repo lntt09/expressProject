@@ -7,7 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Band Edit page</h1>
+    <%- include ../partials/_navbar.ejs%>
+    <% if(typeof message !== "undefined"){%>
+        <p> <%= message %> </p>
+    <% } %>   
+    <h1>Edit Your Band</h1>
+    <form action="/band/<%=oneBand._id%>?_method=PUT" method="POST">
+        <label for="bandName">Band Name:</label>
+        <input type="text" name="bandName" value="<%=oneBand.bandName%>">
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" value="<%=oneBand.genre%>">
+        <label for="description">Description:</label>
+        <input type="text" name="description" value="<%=oneBand.description%>">
+        <label for="priceRange">Price Range:</label>
+        <input type="text" name="priceRange" value="<%=oneBand.priceRange%>"><br>
+        <input type="submit" value="Update Your Band!">
+    </form>
+    <form action="/band/<%=oneBand._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE BAND">
+    </form>
     
 
 </ul>
