@@ -6,6 +6,7 @@ const session = require('express-session');
 
 const venueController = require('./controllers/venueController');
 const userController = require('./controllers/userController');
+const bandController = require('./controllers/bandController');
 
 app.use(session({
     secret: "KeepItSecret",
@@ -32,6 +33,7 @@ app.get('/', (req,res)=>{
 
 app.use('/venues', venueController);
 app.use('/users', userController);
+app.use('/band', bandController);
 
 
 

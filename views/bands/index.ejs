@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Welcome to GIG-LINK - Artist!</h1>
+     <%- include ../partials/_navbar.ejs%>
+    <div>
+        <table>
+            <tr>
+                <th>Band Name</th>
+                <th>Genre</th>
+                <th>Description</th>
+                <th>Price Range</th>
+            </tr>
+            <% bandsOnPage.forEach(function(band){ %>
+            <tr>
+                <td><%=band.bandName%></td>
+                <td><%=band.genre%></td>
+                <td><%=band.description%></td>
+                <td><%=band.priceRange%></td>
+                <td><a href="/band/<%=band._id%>">See more</a></td>
+                <% if(band.creator == currentUser){ %>
+                <td><a href="/band/<%=band._id%>/edit">EDIT This Band</a></td> 
+                <td>
+                    <form action="/band/<%=band._id%>?_method=DELETE" method="POST">
+                    <button name="button" type="submit">DELETE</button>
+                    </form>
+                </td>
+                <% } %>
+            </tr>    
+            <%})%>
+        </table>
+
+        <p><a href="/band/new">Click here to add a new band</a></p>
+    </div>
+
+
+</ul>
+</body>
+</html>

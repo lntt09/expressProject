@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <%- include ../partials/_navbar.ejs%>
+    <% if(typeof message !== "undefined"){%>
+        <p> <%= message %> </p>
+    <% } %>   
+    <h1>Edit Your Band</h1>
+    <form action="/band/<%=oneBand._id%>?_method=PUT" method="POST">
+        <label for="bandName">Band Name:</label>
+        <input type="text" name="bandName" value="<%=oneBand.bandName%>">
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" value="<%=oneBand.genre%>">
+        <label for="description">Description:</label>
+        <input type="text" name="description" value="<%=oneBand.description%>">
+        <label for="priceRange">Price Range:</label>
+        <input type="text" name="priceRange" value="<%=oneBand.priceRange%>"><br>
+        <input type="submit" value="Update Your Band!">
+    </form>
+    <form action="/band/<%=oneBand._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE BAND">
+    </form>
+    
+
+</ul>
+</body>
+</html>
