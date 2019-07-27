@@ -10,7 +10,7 @@
     <%- include ../partials/_navbar.ejs%>
     <h1>Venue Information Below</h1>
     <h2>Venue Name: <%= oneVenue.venueName %> </h2>
-    <h2>Address: <%= oneVenue.address %> </h2>
+    <h2>Address: <%=oneVenue.streetAddress + ' ' + oneVenue.city + ', ' + oneVenue.state + ' ' + oneVenue.zipcode%> </h2>
     <h2>Phone Number: <%= oneVenue.phoneNum %> </h2>
     <h2>Maximum Capacity: <%= oneVenue.capacity %> </h2>
     <h2>Published By: <%= oneVenue.creator.username %></h2>

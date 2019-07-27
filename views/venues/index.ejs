@@ -20,7 +20,7 @@
             <% venuesOnPage.forEach(function(venue){ %>
             <tr>
                 <td><a href="/venues/<%=venue._id%>"><%=venue.venueName%></a></td>
-                <td><%=venue.address%></td>
+                <td><%=venue.streetAddress + ' ' + venue.city + ', ' + venue.state + ' ' + venue.zipcode%></td>
                 <td><%=venue.phoneNum%></td>
                 <td><%=venue.capacity%></td>
                 <% if(venue.creator == currentUser){ %>
