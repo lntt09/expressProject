@@ -4,11 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/style.css" rel="stylesheet">
+    <%- include ../partials/_bootstrap.ejs%>
+
     <title>Document</title>
 </head>
 <body>
+<div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+        <header class="masthead" >
+            <div class="inner top">
+                <h3 class="masthead-brand" style="float: left; width: 200px">GigLink</h3>
+                <nav class="nav nav-masthead justify-content-left">
+                    <a class="nav-link active link" href="/">Home</a>
+                    <a class="nav-link active link" href="/band">Bands</a>
+                    <a class="nav-link active link" href="/venues">Venues</a>
+                </nav>
+            </div>
+        </header>
+        
+        
+</div>
     <h1>Hello Guest! Please take a look at our list of Venues below</h1>
-    <%- include ../partials/_navbar.ejs%>
+    <div class="row">
+    <div class="card" style="width: 15rem;">
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="/venues" class="btn btn-primary">See Venues</a>
+        </div>
+</div>
+<div class="card" style="width: 15rem; ">
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="/band" class="btn btn-primary">See Bands</a>
+        </div>
+</div>
+<div class="card" style="width: 15rem; ">
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="/venues/new" class="btn btn-primary">Add Venue</a>
+        </div>
+</div>
+<div class="card" style="width: 15rem; ">
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="/band/new" class="btn btn-primary">Add Band</a>
+        </div>
+</div>
+</div>
+    <h1> Venues</h1>
+
     <div>
         <table>
             <tr>
@@ -34,3 +82,20 @@
     </div>
 </body>
 </html>
+
+
+<%# <div class="button-box">
+        <div class="button-div">
+            <div>icon</div>
+            <button><a href="/venues">List of Venues</a></button>
+        </div>
+        <div class="button-div">
+            <button><a href="/band">List of Bands</a></button>
+        </div>
+        <div class="button-div">
+            <button><a href="/venues/new">Add New Venue</a></button>
+        </div>
+        <div class="button-div">
+            <button><a href="/band/new">Add New Band</a></button>
+        </div>
+    </div> %>

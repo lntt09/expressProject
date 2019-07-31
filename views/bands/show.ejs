@@ -4,11 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/style.css" rel="stylesheet">
+    <%- include ../partials/_bootstrap.ejs%>
     <title>Document</title>
 </head>
 <body>
+<div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+        <header class="masthead" style=" color: whitesmoke; background-color: black;">
+            <div class="inner top">
+                <h3 class="masthead-brand" style="float: left; width: 200px">GigLink</h3>
+                <nav class="nav nav-masthead justify-content-left">
+                    <a class="nav-link active link" href="/" style=" color: whitesmoke;">Home</a>
+                    <a class="nav-link active link" href="/band" style=" color: whitesmoke;">Bands</a>
+                    <a class="nav-link active link" href="/venues" style=" color: whitesmoke;">Venues</a>
+                </nav>
+            </div>
+        </header>
+        
+        
+</div>
+<img src="https://cdn.pixabay.com/photo/2014/04/04/14/56/background-313415_1280.jpg" class="img-fluid" alt="Responsive image" style="position: absolute; z-index: 1; opacity: .9;
+ width: 100%; height: 350px;">
+<div class="show-cover" style="
+    position: relative;
+    z-index: 1000;
+    margin-top: 13%;
+">
+    <div class="container  w-100 h-100 mx-auto ">
     <h1><%= oneBand.bandName %></h1>
     <img src="<%= oneBand.image%>" alt="band image" height="150" width="300">
+
+    <div class="row" style="float: right;">
+        <div class="jumbotron jumbotron-fluid" style="opacity: .88;">
+        <div class="container">
+        <h1 class="display-3" style= "text-decoration: underline; "><%= oneBand.bandName %></h1>
+        <h4 class="display-9" style="margin-left: 7px;"><%=oneBand.genre %></h4>
+        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+    </div>
+
     <br> 
     <button><a href="">Like</a></button>
     <button><a href="">Message</a></button>   
@@ -20,5 +55,7 @@
     <h2>Price Range: <%= oneBand.priceRange %> </h2>
 
     <p><a href="/band">Go Back Home</a></p>
+    </div>
+</div>
 </body>
 </html>

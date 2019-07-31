@@ -4,17 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/style.css" rel="stylesheet">
+    <%- include ../partials/_bootstrap.ejs%>
     <title>Document</title>
 </head>
 <body>
+
+ <div class="cover-container d-flex w-100 h-100 mx-auto flex-column style="background-color: #f8f9fa;">
+        <header class="masthead">
+            <div class="inner top" style="background-color: black; color: whitesmoke; ">
+                <h3 class="masthead-brand" style="float: left; width: 200px">GigLink</h3>
+                <nav class="nav nav-masthead justify-content-left">
+                    <a class="nav-link active link" href="#" style="color: whitesmoke;">About</a>
+                    <a class="nav-link active link" href="#" style="color: whitesmoke;">FAQ</a>
+                    <a class="nav-link active link" href="#" style="color: whitesmoke;">Home</a>
+                </nav>
+            </div>
+        </header>
     <% if(typeof message !== "undefined"){%>
         <p> <%= message %> </p>
     <% } %>
-    <h1>Welcome Back</h1>
-    <form action="/users/login" method="POST">
+
+   
+        <main role="main" class="inner cover" style="    width: 500px; margin-top: 150px; text-align: center; margin-left: 30%;">
+            <h1 style="margin-left: 140px;">Welcome Back</h1>
+                            <div class ="form-box">
+                            <form action="/users/login" method="POST" style="margin-left: 37%; margin-top: 15%;">
+                            <div class="form-group col-11">
+                            <label for="username">User Name</label>
+                            <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp" placeholder="Enter username">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group col-11">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                            </div>
+                                    
+                                </main>
+                                
+                            </div>
+    
+
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%# <form action="/users/login" method="POST">
         username: <input type="text" name="username">
         password: <input type="password" name="password">
         <input type="submit" value="Login">
-    </form>
-</body>
-</html>
+    </form> %>

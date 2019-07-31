@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+   <link href="css/style.css" rel="stylesheet">
     <%- include ./partials/_bootstrap.ejs%>
-
 </head>
 <body>
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="masthead mb-auto">
-            <div class="inner">
+    
+    <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+        <header class="masthead">
+            <div class="inner top">
                 <h3 class="masthead-brand" style="float: left; width: 200px">GigLink</h3>
                 <nav class="nav nav-masthead justify-content-left">
-                    <a class="nav-link active" href="#">Home</a>
-                    <a class="nav-link active" href="#">About</a>
-                    <a class="nav-link active" href="#">FAQ</a>
+                    <a class="nav-link active link" href="/">Home</a>
+                    <a class="nav-link active link" href="/band">Bands</a>
+                    <a class="nav-link active link" href="/venues">Venues</a>
                 </nav>
             </div>
         </header>
@@ -24,9 +25,11 @@
             <h4>GigLink makes booking gigs simple!</h4>
             <p>This site will allow you Venues and Artist to collaborate. If you are a new user, please register. If not please sign in.</p>
 
-            <button><a href="/users/new">Register</a></button>
+            <button><a href="users/new">Register</a></button>
             <button><a href="/users/login">Log In</a></button>
         </main>
+        
     </div>
+    
 </body>
 </html>
