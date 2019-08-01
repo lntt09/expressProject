@@ -17,12 +17,12 @@
     color: whitesmoke;
 }
 
-.button-div {
+/* .button-div {
     height: 200px;
     width: 200px;
     background: blueviolet;
     display: inline-block;
-}
+} */
 .button-box {
     margin-left: 15%;
     position: relative;

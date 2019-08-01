@@ -8,7 +8,13 @@
     <%- include ../partials/_bootstrap.ejs%>
     <title>Document</title>
 </head>
-<body>
+<body  style="
+background: #4b6cb7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+">
 <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
         <header class="masthead" style=" color: whitesmoke; background-color: black;">
             <div class="inner top">
@@ -23,39 +29,60 @@
         
         
 </div>
-<img src="https://cdn.pixabay.com/photo/2014/04/04/14/56/background-313415_1280.jpg" class="img-fluid" alt="Responsive image" style="position: absolute; z-index: 1; opacity: .9;
- width: 100%; height: 350px;">
-<div class="show-cover" style="
-    position: relative;
-    z-index: 1000;
-    margin-top: 13%;
-">
-    <div class="container  w-100 h-100 mx-auto ">
-    <h1><%= oneBand.bandName %></h1>
-    <img src="<%= oneBand.image%>" alt="band image" height="150" width="300">
 
-    <div class="row" style="float: right;">
-        <div class="jumbotron jumbotron-fluid" style="opacity: .88;">
+    <div class="container  w-100 h-100 mx-auto" style= "margin-top: 5%; ">
+    
+    
+<div class="row" style="float: right;     margin-right: 2%;">
+    <div class="jumbotron jumbotron-fluid" style="opacity: .88; width: 600PX;">
         <div class="container">
         <h1 class="display-3" style= "text-decoration: underline; "><%= oneBand.bandName %></h1>
-        <h4 class="display-9" style="margin-left: 7px;"><%=oneBand.genre %></h4>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        <div class="embed-responsive embed-responsive-16by9">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/zVyEPAMpwDc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>           </div>
+        
+        <hr class="my-4">
+        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/316762373&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+        
+        </div>
+     </div>
+</div>
+
+    <div class="card" style="width: 20rem;">
+  <img src="<%= oneBand.image%>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">About</h5>
+    <p class="card-text"><%= oneBand.description %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Genre: <%= oneBand.genre %> </li>
+    <li class="list-group-item">Price Range: <%= oneBand.priceRange %></li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="btn btn-primary">Calendar</a>
+    <a href="#" class="btn btn-warning">Book</a>
+    <a href="#" class="btn btn-secondary">$ Send Tip</a>
+  </div>
+
+  <div>
+  <div class="jumbotron jumbotron-fluid" style="width:318pxpx">
+  <h1 class="display-4">Map!</h1>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
   </div>
 </div>
-    </div>
 
-    <br> 
-    <button><a href="">Like</a></button>
-    <button><a href="">Message</a></button>   
-    <button><a href="">Book</a></button>
-    <br>
-    <button><a href="">See Calendar</a></button>
-     <h2>Genre: <%= oneBand.genre %> </h2>
-    <h2>Description: <%= oneBand.description %> </h2>
-    <h2>Price Range: <%= oneBand.priceRange %> </h2>
-
-    <p><a href="/band">Go Back Home</a></p>
-    </div>
+<div class="jumbotron-fluid" style="width:400px">
+  <h1 class="display-4">Map!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
+    
+</div>
+
+
 </body>
 </html>
