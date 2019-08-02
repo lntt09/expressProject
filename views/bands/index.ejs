@@ -51,7 +51,8 @@
         <div class="card-body">
             <h5 class="card-title">Special title treatment</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="/band/new" class="btn btn-primary">Add Band</a>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">ADD BANDS @mdo</button>
+
         </div>
 </div>
 </div>
@@ -92,7 +93,72 @@
 
 
 </ul>
-    
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">SEE BANDS @mdo</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>    
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/band" method="POST">
+
+          <div class="form-group">
+            <label for="bandName" class="col-form-label">Band Name:</label>
+            <input type="text" class="form-control" id="recipient-name" name="bandName">
+          </div>
+
+          <div class="form-group">
+            <label for="description" class="col-form-label">Description:</label>
+            <textarea type="text" class="form-control" id="message-text" name="description"></textarea>
+
+            <div class="form-group">
+            <label for="genre" class="col-form-label">Genre:</label>
+            <input type="text" class="form-control" id="recipient-name" name="genre">
+          </div>
+
+          <div class="form-group">
+            <label for="priceRange" class="col-form-label">Price Range:</label>
+            <input type="text" class="form-control" id="recipient-name" name="priceRange">
+          </div>
+
+          <div class="form-group">
+            <label for="image" class="col-form-label">Image Link:</label>
+            <input type="text" class="form-control" id="recipient-name" name="image">
+          </div>
+
+          <div class="form-group">
+            <label for="video" class="col-form-label">Video Link:</label>
+            <input type="text" class="form-control"  name="video">
+          </div>
+
+          <div class="form-group">
+            <label for="song" class="col-form-label">SoundCloud Link:</label>
+            <input type="text" class="form-control" id="recipient-name" name="song">
+          </div>
+
+          
+
+          
+        
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit"  class="btn btn-secondary" value="Resgister your band!">
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
 

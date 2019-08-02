@@ -2,11 +2,14 @@ const express = require("express")
 const app = express()
 const router = express.Router()
 const Band = require('../models/bandDb')
-
+const test = require('../public/js/app')
+console.log("TIME FOR IT TIME TIME ")
+// const link = bar();
 // Index Route
 
 router.get('/', (req, res)=>{
     console.log("Testing Route")
+    console.log(test)
     Band.find({}, (err, bands)=>{
         res.render('bands/index.ejs', {
             bandsOnPage : bands
@@ -36,10 +39,16 @@ router.post('/', (req, res)=>{
 //Show Route
 router.get('/:id', async(req,res)=>{
     try{
+
+        
         const seeBand = await Band.findById(req.params.id)
+        const video = await seeBand.video
+        const vid = test(video)
         res.render('bands/show.ejs',{
-            oneBand : seeBand
+            oneBand : seeBand,
+            myVid : vid
         })
+        
     }
     catch(err){
         console.log(err);

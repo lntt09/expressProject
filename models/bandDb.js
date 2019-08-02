@@ -13,7 +13,9 @@ const bandSchema = new Schema({
     genre: String,
     description: String,
     priceRange: String,
-    image: String
+    image: String,
+    song: String,
+    video: String
 
 })
 
