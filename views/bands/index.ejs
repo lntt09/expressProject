@@ -4,11 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="css/style.css" rel="stylesheet">
+    <%- include ../partials/_bootstrap.ejs%>
     <title>Document</title>
 </head>
 <body>
-    <h1> Welcome to GIG-LINK - Artist!</h1>
-     <%- include ../partials/_navbar.ejs%>
+<div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+        <header class="masthead">
+            <div class="inner top">
+                <h3 class="masthead-brand" style="float: left; width: 200px">GigLink</h3>
+                <nav class="nav nav-masthead justify-content-left">
+                    <a class="nav-link active link" href="/">Home</a>
+                    <a class="nav-link active link" href="/bands">Bands</a>
+                    <a class="nav-link active link" href="/venues">Venues</a>
+                </nav>
+            </div>
+        </header>
+        
+        
+</div>
+    <h1>Hello Guest! Please take a look at our list of Bands below</h1>
+    <div class="row">
+    <div class="card" style="width: 15rem;">
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="/venues" class="btn btn-primary">See Venues</a>
+        </div>
+</div>
+<div class="card" style="width: 15rem; ">
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="/band" class="btn btn-primary">See Bands</a>
+        </div>
+</div>
+<div class="card" style="width: 15rem; ">
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="/venues/new" class="btn btn-primary">Add New Venue</a>
+        </div>
+</div>
+<div class="card" style="width: 15rem; ">
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add New Band</button>
+
+        </div>
+</div>
+</div>
+
+<h1> Bands</h1>
     <div>
         <table>
             <tr>
@@ -19,19 +68,21 @@
             </tr>
             <% bandsOnPage.forEach(function(band){ %>
             <tr>
-                <td><%=band.bandName%></td>
+                <td>
+                <%=band.bandName%>
+                
+                </td>
                 <td><%=band.genre%></td>
                 <td><%=band.description%></td>
                 <td><%=band.priceRange%></td>
                 <td><a href="/band/<%=band._id%>">See more</a></td>
-                <% if(band.creator == currentUser){ %>
                 <td><a href="/band/<%=band._id%>/edit">EDIT This Band</a></td> 
+        
                 <td>
                     <form action="/band/<%=band._id%>?_method=DELETE" method="POST">
                     <button name="button" type="submit">DELETE</button>
                     </form>
                 </td>
-                <% } %>
             </tr>    
             <%})%>
         </table>
@@ -41,5 +92,65 @@
 
 
 </ul>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Complete all fields below to add new band!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/band" method="POST">
+
+          <div class="form-group">
+            <label for="bandName" class="col-form-label">Band Name:</label>
+            <input type="text" class="form-control" id="recipient-name" name="bandName">
+          </div>
+
+          <div class="form-group">
+            <label for="description" class="col-form-label">Description:</label>
+            <textarea type="text" class="form-control" id="message-text" name="description"></textarea>
+
+            <div class="form-group">
+            <label for="genre" class="col-form-label">Genre:</label>
+            <input type="text" class="form-control" id="recipient-name" name="genre">
+          </div>
+
+          <div class="form-group">
+            <label for="priceRange" class="col-form-label">Price Range:</label>
+            <input type="text" class="form-control" id="recipient-name" name="priceRange">
+          </div>
+
+          <div class="form-group">
+            <label for="image" class="col-form-label">Image Link:</label>
+            <input type="text" class="form-control" id="recipient-name" name="image">
+          </div>
+
+          <div class="form-group">
+            <label for="video" class="col-form-label">YouTube Link:</label>
+            <input type="text" class="form-control"  name="video">
+          </div>
+
+          <div class="form-group">
+            <label for="song" class="col-form-label">SoundCloud Link:</label>
+            <input type="text" class="form-control" id="recipient-name" name="song">
+          </div>
+                
+        
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit"  class="btn btn-secondary" value="Register Your Band!">
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

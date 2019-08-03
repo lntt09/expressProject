@@ -4,19 +4,20 @@ const Schema = mongoose.Schema;
 const mongoURI = 'mongodb://localhost:27017/' + 'qhtn';
 const db = mongoose.connection;
 
+mongoose.connect(mongoURI, { useNewUrlParser: true}, () =>{
+    console.log("The connection works!!!")
+});
 
 const bandSchema = new Schema({
     bandName: String,
     genre: String,
     description: String,
-    priceRange: Number,
+    priceRange: String,
     image: String,
-    creator : {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: true
-    }
-}, {timestamps: true});
+    song: String,
+    video: String
+
+})
 
 const Band = mongoose.model('bands', bandSchema);
 

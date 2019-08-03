@@ -1,0 +1,54 @@
+.clear {
+    border: 2px solid black;
+    height: 1004px;
+
+}
+
+.cover-container {
+    background-color: #f8f9fa;
+}
+
+.top {
+    background-color: black;
+    color: whitesmoke;
+}
+
+.link {
+    color: whitesmoke;
+}
+
+/* .button-div {
+    height: 200px;
+    width: 200px;
+    background: blueviolet;
+    display: inline-block;
+} */
+.button-box {
+    margin-left: 15%;
+    position: relative;
+}
+/* button{
+    position: relative;
+    margin-top: 0px;
+    bottom: -170px;
+    left: 35px;
+} */
+/* .button-info {
+    height: 100px;
+    width: 100%;
+    background: yellow;
+} */
+
+.form-box {
+    height: 300px;
+    width: 600px;
+    border: 2px solid black;
+}
+
+
+.show-cover {
+    position: absolute;
+    background: blueviolet;
+    height: 30%;
+    width: 100%;
+}

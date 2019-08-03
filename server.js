@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+
+app.use(express.static("public"));
+
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');

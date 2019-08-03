@@ -2,11 +2,14 @@ const express = require("express")
 const app = express()
 const router = express.Router()
 const Band = require('../models/bandDb')
-const loginRequired = require('../middleware/loginRequired');
-
+const test = require('../public/js/app')
+console.log("TIME FOR IT TIME TIME ")
+// const link = bar();
 // Index Route
 
 router.get('/', (req, res)=>{
+    console.log("Testing Route")
+    console.log(test)
     Band.find({}, (err, bands)=>{
         res.render('bands/index.ejs', {
             bandsOnPage : bands
@@ -15,44 +18,37 @@ router.get('/', (req, res)=>{
 })
 
 //New Route
-router.get('/new', loginRequired, (req, res)=>{
+router.get('/new', (req, res)=>{
     res.render('bands/new.ejs')
 })
 
 //Create Route
 router.post('/', (req, res)=>{
-    if(!req.session.userID){
-        res.redirect("/users/login");
-    }
-    else{
-        try{
-            req.body.creator = req.session.userID;
-            Band.create(req.body, (err, createBand)=>{
-                if(err){
-                    console.log(err);
-                    res.send(err);
-                }
-                else{
-                    console.log(createBand);
-                    res.redirect('/band');
-                }
-            })
+    Band.create(req.body, (err, createBand)=>{
+        if(err){
+            console.log(err);
+            res.send(err);
         }
-        catch(err){
-            console.log(err)
-            res.send(err)
+        else{
+            console.log(createBand);
+            res.redirect('/band');
         }
-    }
-});    
-    
+    })
+})
 
 //Show Route
 router.get('/:id', async(req,res)=>{
     try{
-        const seeBand = await Band.findById(req.params.id).populate('creator')
+
+        
+        const seeBand = await Band.findById(req.params.id)
+        const video = await seeBand.video
+        const vid = test(video)
         res.render('bands/show.ejs',{
-            oneBand : seeBand
+            oneBand : seeBand,
+            myVid : vid
         })
+        
     }
     catch(err){
         console.log(err);
@@ -90,4 +86,7 @@ router.put('/:id', async (req,res)=>{
     }  
   })
 
-module.exports = router;
+
+
+
+module.exports = router
