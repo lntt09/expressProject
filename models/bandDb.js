@@ -15,9 +15,17 @@ const bandSchema = new Schema({
     priceRange: String,
     image: String,
     song: String,
-    video: String
+    video: String,
+    creator: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: false
+      }
+}, {timestamps: true});
 
-})
+    
+
+
 
 const Band = mongoose.model('bands', bandSchema);
 

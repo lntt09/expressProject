@@ -52,7 +52,7 @@
         <div class="card-body">
             <h5 class="card-title">Register a new band</h5>
             <p class="card-text">Your band is one step a way from using a fast and hassle-free booking engine. </p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add New Band</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="">Add new Band!</button>
 
         </div>
     </div>  
@@ -80,8 +80,8 @@
                 <td><%=band.genre%></td>
                 <td><%=band.description%></td>
                 <td><%=band.priceRange%></td>
-                <td><a href="/band/<%=band._id%>">See more</a></td>
-                <td><a href="/band/<%=band._id%>/edit">EDIT This Band</a></td> 
+                <td><a href="/band/<%=band._id%>" type="button" class="btn btn-primary">See more</a></td>
+                <td><a href="/band/<%=band._id%>/edit" type="button" class="btn btn-primary" >EDIT This Band</a></td> 
         
                 <td>
                     <form action="/band/<%=band._id%>?_method=DELETE" method="POST">
@@ -159,6 +159,10 @@
     </div>
   </div>
 </div>
+
+
+
+
 
 </body>
 </html>

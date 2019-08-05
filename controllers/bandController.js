@@ -13,6 +13,7 @@ router.get('/', (req, res)=>{
     Band.find({}, (err, bands)=>{
         res.render('bands/index.ejs', {
             bandsOnPage : bands
+            
         })
     })
 })
@@ -74,16 +75,16 @@ router.get('/:id/edit', (req, res)=>{
 
 //Put Route
 router.put('/:id', async (req,res)=>{
-    const bands = await Band.findById(req.params.id);
-    if(bands.creator.toString() !== req.session.userID){
-      req.session.message = "Priviledge to edit is invalid";
-      res.redirect(`/band/${req.params.id}`)
+    try{
+        Band.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err,foundBand)=>{
+            res.redirect('/band') 
+        })
     }
-    else{
-      Band.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err,foundBand)=>{
-          res.redirect('/band') 
-      })
-    }  
+    catch(err){
+        console.log(err);
+        res.send(err);
+    }
+
   })
 
 
