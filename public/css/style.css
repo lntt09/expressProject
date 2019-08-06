@@ -52,3 +52,32 @@
     height: 30%;
     width: 100%;
 }
+
+#map {
+    height: 50%;
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    border: 5px solid red;
+    border-radius: 25px;
+  }
+
+.venueshow {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.venueTitle{
+    margin: 50px auto;
+    text-decoration-line: underline;
+    font-family: red serif;
+    font-size: 60px;
+    
+}
+
+.venueInfo {
+    border: 1px solid black;
+    font-family: monospace
+}
+
