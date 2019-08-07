@@ -1,20 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class='venueshow'>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../js/app.js"></script>
+    <%- include ../partials/_bootstrap.ejs%>
+    <title>Display Venues</title>
+
 </head>
-<body>
+<body class='venueshow'>
     <%- include ../partials/_navbar.ejs%>
-    <h1>Venue Information Below</h1>
-    <h2>Venue Name: <%= oneVenue.venueName %> </h2>
-    <h2>Address: <%= oneVenue.address %> </h2>
-    <h2>Phone Number: <%= oneVenue.phoneNum %> </h2>
-    <h2>Maximum Capacity: <%= oneVenue.capacity %> </h2>
-    <h2>Published By: <%= oneVenue.creator.username %></h2>
+
+    <h1 class="venueTitle"><%= oneVenue.venueName %> </h1>
+
+    <div id="map"></div>
+    <div class="venueInfo">
+      <h2>Address: <%=oneVenue.streetAddress + ' ' + oneVenue.city + ', ' + oneVenue.state + ' ' + oneVenue.zipcode%> </h2>
+      <h2>Phone Number: <%= oneVenue.phoneNum %> </h2>
+      <h2>Maximum Capacity: <%= oneVenue.capacity %> </h2>
+      <h2>Venue Added By: <%= oneVenue.creator.firstName %></h2>
+    </div>
+
+
 
     <p><a href="/venues">Go Back Home</a></p>
+
 </body>
 </html>

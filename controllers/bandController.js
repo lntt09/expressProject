@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 const router = express.Router()
 const Band = require('../models/bandDb')
-const test = require('../public/js/app')
+const test = require('../public/js/app-q')
 console.log("TIME FOR IT TIME TIME ")
 // const link = bar();
 // Index Route

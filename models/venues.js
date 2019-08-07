@@ -12,7 +12,10 @@ const venueSchema = new Schema ({
     venueName : {
         type : String,
         required : true},
-    address : String,
+    streetAddress : String,
+    city : String,
+    state: String,
+    zipcode : String,
     phoneNum : String,
     capacity : Number,
     creator: {
