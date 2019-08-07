@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <%- include ../partials/_navbar.ejs%>   
+    <h1>Please Add A New Venue Below</h1>
+    <form action="/venues" method="POST">
+        <label for="venueName">Venue Name:</label>
+        <input type="text" name="venueName">
+        <label for="streetAddress">Street Address:</label>
+        <input id='streetAddress' type="text" name="streetAddress">
+        <label for="city">City:</label>
+        <input id='city'type="text" name="city">
+        <label for="state">State:</label>
+        <input id='state'type="text" name="state">
+        <label for="zipcode">Zipcode:</label>
+        <input id='zipcode'type="text" name="zipcode">
+        <label for="phoneNum">Phone Number:</label>
+        <input type="text" name="phoneNum">
+        <label for="capacity">Max Capacity:</label>
+        <input type="text" name="capacity">
+        <input type="submit" value="Add this Venue">
+    </form>
+
+
+
+
+</body>
+</html>

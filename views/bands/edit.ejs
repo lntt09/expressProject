@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <%- include ../partials/_navbar.ejs%>
+    <%- include ../partials/_bootstrap.ejs%>
+    <% if(typeof message !== "undefined"){%>
+        <p> <%= message %> </p>
+    <% } %>   
+    <h1>Edit Your Band</h1>
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Complete all fields below to add new band!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/band/<%=oneBand._id%>?_method=PUT" method="POST">
+
+          <div class="form-group">
+            <label for="bandName" class="col-form-label">Band Name:</label>
+            <input type="text" class="form-control" id="recipient-name" name="bandName" value="<%=oneBand.bandName%>">
+          </div>
+
+          <div class="form-group">
+            <label for="description" class="col-form-label">Description:</label>
+            <input type="text" class="form-control" id="message-text" name="description" value="<%=oneBand.description%>">
+
+            <div class="form-group">
+            <label for="genre" class="col-form-label">Genre:</label>
+            <input type="text" class="form-control" id="recipient-name" name="genre" value="<%=oneBand.genre%>">
+          </div>
+
+          <div class="form-group">
+            <label for="priceRange" class="col-form-label">Price Range:</label>
+            <input type="text" class="form-control" id="recipient-name" name="priceRange" value="<%=oneBand.priceRange%>">
+          </div>
+
+          <div class="form-group">
+            <label for="image" class="col-form-label">Image Link:</label>
+            <input type="text" class="form-control" id="recipient-name" name="image" value="<%=oneBand.image%>">
+          </div>
+
+          <div class="form-group">
+            <label for="video" class="col-form-label">YouTube Link:</label>
+            <input type="text" class="form-control"  name="video" value="<%=oneBand.video%>">
+          </div>
+
+          <div class="form-group">
+            <label for="song" class="col-form-label">SoundCloud Link:</label>
+            <input type="text" class="form-control" id="recipient-name" name="song">
+          </div>
+
+          
+
+          
+        
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit"  class="btn btn-secondary" value="Save and Update">
+        </form>
+
+        <form action="/venues/<%=oneBand._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE VENUE">
+    </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    
+    
+    
+
+</ul>
+</body>
+</html>
+
+ 
+
+
+
+
+
+
+
+    

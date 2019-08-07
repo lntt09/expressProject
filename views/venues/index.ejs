@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/style.css" rel="stylesheet">
+    <%- include ../partials/_bootstrap.ejs%>
+
+    <title>Document</title>
+</head>
+<body>
+
+<!-- <%# <div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Collapsed content</h5>
+      <span class="text-muted">Toggleable via the navbar brand.</span>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <h3 class="masthead-brand" style="float: left; width: 125px; padding-right: 15px; color: whitesmoke;">GigLink</h3>
+      <span class="navbar-toggler-icon" style="margin-top: 2.5px; color: whitesmoke;"></span>
+    </button>
+  </nav>
+</div> %> -->
+
+  <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+    <header class="masthead" >
+        <div class="inner top">
+            <h3 class="masthead-brand" style="float: left; width: 200px">GigLink</h3>
+            <nav class="nav nav-masthead justify-content-left">
+                <a class="nav-link active link" href="/">Home</a>
+                <a class="nav-link active link" href="/band">Bands</a>
+                <a class="nav-link active link" href="/venues">Venues</a>
+            </nav>
+        </div>
+    </header>            
+  </div>
+
+  <h1>Hello Guest! Please take a look at our list of Bands below</h1>
+    <div class="row">
+    <div class="card" style="width: 15rem;">
+        <div class="card-body">
+            <h5 class="card-title">See who's booking gigs</h5>
+            <p class="card-text">Say goodbye to your overpriced booking agent and book your own gigs fast and easy.</p>
+            <a href="/venues" class="btn btn-primary">See Venues</a>
+        </div>
+</div>
+<div class="card" style="width: 15rem; ">
+        <div class="card-body">
+            <h5 class="card-title">Seeking talent?</h5>
+            <p class="card-text">Venues can browse GigLinks wide variety of bands looking to play more gigs..</p>
+            <a href="/band" class="btn btn-primary">See Bands</a>
+        </div>
+</div>
+<div class="card" style="width: 15rem; ">
+      <div class="card-body">
+          <h5 class="card-title">Register a new venue</h5>
+          <p class="card-text">Add your venue and simply the booking process</p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#venueModal" data-whatever="@mdo">Add New Venue</button>
+      </div>
+    </div>
+<div class="card" style="width: 15rem; ">
+        <div class="card-body">
+            <h5 class="card-title">Register a new band</h5>
+            <p class="card-text">Your band is one step a way from using a fast and hassle-free booking engine.</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add New Band</button>
+
+        </div>
+</div>
+</div>
+
+  <h1> Venues</h1>
+
+    <div>
+      <table>
+        <tr>
+            <th>Venue Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Maximum Capacity</th>
+        </tr>
+        <% venuesOnPage.forEach(function(venue){ %>
+        <tr>
+            <td><a href="/venues/<%=venue._id%>"><%=venue.venueName%></a></td>
+            <td><%=venue.streetAddress + ' ' + venue.city + ', ' + venue.state + ' ' + venue.zipcode%></td>
+            <td><%=venue.phoneNum%></td>
+            <td><%=venue.capacity%></td>
+            <% if(venue.creator == currentUser){ %>
+            <td><a href="/venues/<%=venue._id%>/edit">EDIT This Venue</a></td> 
+            <% } %>
+        </tr>    
+        <%})%>
+      </table>
+      <p><a href="/venues/new">Add A New Venue</a></p>
+    </div>
+
+
+  <div class="modal fade" id="venueModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Complete all fields below to add a new Venue</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/venues" method="POST">
+
+            <div class="form-group">
+              <label for="venueName" class="col-form-label">Venue Name:</label>
+              <input type="text" class="form-control" id="venueName" name="venueName">
+            </div>
+
+            <div class="form-group">
+              <label for="streetAddress" class="col-form-label">Street Address:</label>
+              <input type="text" class="form-control" id="streetAddress" name="streetAddress">
+            </div>
+
+            <div class="form-group">
+              <label for="city" class="col-form-label">City:</label>
+              <input type="text" class="form-control" id="city" name="city">
+            </div>
+
+            <div class="form-group">
+              <label for="state" class="col-form-label">State:</label>
+              <input type="text" class="form-control" id="state" name="state">
+            </div>
+
+            <div class="form-group">
+              <label for="zipcode" class="col-form-label">Zipcode:</label>
+              <input type="text" class="form-control" id="zipcode" name="zipcode">
+            </div>
+
+            <div class="form-group">
+              <label for="phoneNum" class="col-form-label">Phone Number:</label>
+              <input type="text" class="form-control" id="phoneNum" name="phoneNum">
+            </div>
+
+            <div class="form-group">
+              <label for="max" class="col-form-label">Max Capacity:</label>
+              <input type="text" class="form-control" id="max" name="max">
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Add This Venue</button>
+            </div>
+          </form>
+        </div>  
+        
+      </div>
+    </div>
+  </div>    
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Complete all fields below to add new band!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/band" method="POST">
+
+            <div class="form-group">
+              <label for="bandName" class="col-form-label">Band Name:</label>
+              <input type="text" class="form-control" id="recipient-name" name="bandName">
+            </div>
+
+            <div class="form-group">
+              <label for="description" class="col-form-label">Description:</label>
+              <textarea type="text" class="form-control" id="message-text" name="description"></textarea>
+
+              <div class="form-group">
+              <label for="genre" class="col-form-label">Genre:</label>
+              <input type="text" class="form-control" id="recipient-name" name="genre">
+            </div>
+
+            <div class="form-group">
+              <label for="priceRange" class="col-form-label">Price Range:</label>
+              <input type="text" class="form-control" id="recipient-name" name="priceRange">
+            </div>
+
+            <div class="form-group">
+              <label for="image" class="col-form-label">Image Link:</label>
+              <input type="text" class="form-control" id="recipient-name" name="image">
+            </div>
+
+            <div class="form-group">
+              <label for="video" class="col-form-label">YouTube Link:</label>
+              <input type="text" class="form-control"  name="video">
+            </div>
+
+            <div class="form-group">
+              <label for="song" class="col-form-label">SoundCloud Link:</label>
+              <input type="text" class="form-control" id="recipient-name" name="song">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <input type="submit"  class="btn btn-secondary" value="Register Your Band!">
+            </div>
+
+          </form>
+        </div>          
+        
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

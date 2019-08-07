@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="../js/app.js"></script>
+    <%- include ../partials/_bootstrap.ejs%>
+    <title>Document</title>
+</head>
+<body  style="
+background: #4b6cb7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+">
+<div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+        <header class="masthead" style=" color: whitesmoke; background-color: black;">
+            <div class="inner top">
+                <h3 class="masthead-brand" style="float: left; width: 200px">GigLink</h3>
+                <nav class="nav nav-masthead justify-content-left">
+                    <a class="nav-link active link" href="/" style=" color: whitesmoke;">Home</a>
+                    <a class="nav-link active link" href="/band" style=" color: whitesmoke;">Bands</a>
+                    <a class="nav-link active link" href="/venues" style=" color: whitesmoke;">Venues</a>
+                </nav>
+            </div>
+        </header>
+        
+        
+</div>
+
+    <div class="container  w-100 h-100 mx-auto" style= "margin-top: 5%; ">
+    
+    
+<div class="row" style="float: right;     margin-right: 2%;">
+    <div class="jumbotron jumbotron-fluid" style="opacity: .88; width: 600PX;">
+        <div class="container">
+        <h1 class="display-3" style= "text-decoration: underline; "><%= oneBand.bandName %></h1>
+        <div class="embed-responsive embed-responsive-16by9">
+
+
+   
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= myVid%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                  </div>
+        
+        <hr class="my-4">
+        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/602737254&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+        <%oneBand.song %>
+        
+        </div>
+     </div>
+</div>
+
+    <div class="card" style="width: 20rem;">
+  <img src="<%= oneBand.image%>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">About</h5>
+    <p class="card-text"><%= oneBand.description %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Genre: <%= oneBand.genre %> </li>
+    <li class="list-group-item">Price Range: <%= oneBand.priceRange %></li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="btn btn-primary">Calendar</a>
+    <a href="#" class="btn btn-warning">Book</a>
+    <a href="#" class="btn btn-secondary">$ Send Tip</a>
+  </div>
+
+  <div>
+  <div class="jumbotron jumbotron-fluid" style="width:318pxpx">
+  <h1 class="display-4">Map!</h1>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
+  </div>
+</div>
+
+<div class="jumbotron-fluid" style="width:400px">
+  <h1 class="display-4">Map!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
+    
+</div>
+
+
+</body>
+</html>
