@@ -12,6 +12,10 @@ const venueController = require('./controllers/venueController');
 const userController = require('./controllers/userController');
 const bandController = require('./controllers/bandController');
 
+const PORT = process.env.port || 3000
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/' + 'qhtn';
+
+
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
@@ -45,6 +49,15 @@ app.use('/band', bandController);
 //     console.log("This Application is Running");
 //   })
 
-  app.listen(process.env.PORT, () => {
+  app.listen(PORT, () => {
     console.log('listening on port 3000');
   })
+
+
+const mongoURI = process.env.MONGODB_URI;
+const db = mongoose.connection;
+
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+mongoose.connection.once("open", () => {
+ console.log("connected to mongoose");
+});

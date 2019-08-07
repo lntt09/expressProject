@@ -1,12 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const mongoURI = process.env.MONGODB_URI;
-const db = mongoose.connection;
 
-mongoose.connect(mongoURI, { useNewUrlParser: true}, () =>{
-    console.log("The connection works!!!")
-});
 
 const bandSchema = new Schema({
     bandName: String,
