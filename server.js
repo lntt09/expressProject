@@ -13,7 +13,7 @@ const userController = require('./controllers/userController');
 const bandController = require('./controllers/bandController');
 
 app.use(session({
-    secret: "KeepItSecret",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
   }))
