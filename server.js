@@ -41,6 +41,10 @@ app.use('/band', bandController);
 
 
 
-app.listen(3000,()=>{
-    console.log("This Application is Running");
+// app.listen(3000,()=>{
+//     console.log("This Application is Running");
+//   })
+
+  app.listen(process.env.PORT, () => {
+    console.log('listening on port 3000');
   })

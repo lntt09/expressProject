@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const mongoURI = 'mongodb://localhost:27017/' + 'qhtn';
+const mongoURI = process.env.MONGODB_URI;
 const db = mongoose.connection;
 
 mongoose.connect(mongoURI, { useNewUrlParser: true}, () =>{
