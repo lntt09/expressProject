@@ -18,7 +18,7 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/' + 'q
 
 
 app.use(session({
-    secret: process.env.SECRET,
+    secret: 'itisasecret',
     resave: false,
     saveUninitialized: false
   }))
